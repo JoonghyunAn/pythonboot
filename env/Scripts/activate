@@ -38,8 +38,9 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\Classes\01_python\env"
+VIRTUAL_ENV="C:\Classes\eddie_python\env"
 export VIRTUAL_ENV
+
 
 _OLD_VIRTUAL_PATH="$PATH"
 PATH="$VIRTUAL_ENV/Scripts:$PATH"
