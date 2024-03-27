@@ -1,4 +1,7 @@
-
+use hr_join;
+select 
+from customers c join orders o on c.cust_id = o.cust_id
+where o.order_id = 1 
 /* 주문_제품 */
 DROP TABLE IF EXISTS order_items;
 

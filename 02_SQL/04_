@@ -16,8 +16,7 @@
     - Cross Join
         - 두 테이블의 곱집합을 반환한다. 
         - 10 rows from  emp * 5 rows from dept = 50 rows 
-        - all possibilites 
-******************************************************************************** */        
+        - all possibilites ******************************************************************************* */        
 
 
 
@@ -216,15 +215,44 @@ select e.emp_id,
 from dept d join emp e on d.dept_id = e.dept_id
 where d.loc = 'San Francisco';
 
-
+###다시풀어보기###
 -- 부서별 급여(salary)의 평균을 조회. 부서이름(dept.dept_name)과 급여평균을 출력. 급여 평균이 높은 순서로 정렬. 
+select d.dept_name,
+	   avg(e.salary)
+from dept d join emp e on e.dept_id = d.dept_id
+group by d.dept_name;
+
+
+
+
+select d.dept_name,
+	   avg(e.salary)
+	   
+from emp e join dept d on e.dept_id = d.dept_id
+group by d.dept_id, d.dept_name;
+
+
+
 select d.dept_name, d.dept_name
 	   avg(e.salary) "급여평균"
 from emp e join dept d on e.dept_id = d.dept_id 
 group by d.dept_id, d.dept_name;
 
 
--- 직원의 ID(emp.emp_id), 이름(emp.emp_name), 업무명(job.job_title), 급여(emp.salary), 급여등급(salary_grade.grade), 소속부서명(dept.dept_name)을 조회.
+
+-- 직원의 ID(emp.emp_id), 이름(emp.emp_name), 업무명(job.job_title), 급여(emp.salary), 
+-- 급여등급(salary_grade.grade), 소속부서명(dept.dept_name)을 조회.
+
+
+select  e.emp_id,
+		e.emp_name,
+        j.job_title,
+        e.salary,
+        s.grade,
+        d.dept_name
+from emp e join job j on j.job_id = e.job_id 
+		   join dept d on d.dept_id = e.dept_id
+		   join salary_grade s on e.salary between s.low_sal and s.high_sal;
 
 
 
@@ -240,6 +268,14 @@ from emp e join job j on e.job_id = j.job_id
 -- 부서명(dept)이 'shipping' 인 직원들의 담당 업무명(job)을 조회. 
 -- dept 와 job은 직접적인 연결고리가 없음
 -- dept 와 job을 연결해주는 emp 테이블까지 붙여서 조인 
+
+select distinct j.job_title,
+        d.dept_name
+from emp e join job j on j.job_id = e.job_id
+		    join dept d on e.dept_id = d.dept_id
+where d.dept_name = 'shipping';
+
+
 select distinct j.job_title, e.emp_name
 from job j join emp e on j.job_id = e.job_id 
            join dept d on e.dept_id = d.dept_id
@@ -253,11 +289,24 @@ Self 조인
 
 -- 직원 ID가 101인 직원의 직원의 ID(emp.emp_id), 이름(emp.emp_name), 상사이름(emp.emp_name)을 조회
 select e.emp_id,
+		e.emp_name,
+        de.emp
+from emp e join emp de on e.emp_id = de.emp_id
+where e.emp_id = 101 and de.emp_id = 100
+;
+###다시풀어보기###
+select e.emp_id,
        e.emp_name,
        m.emp_id"상사아이디",
-       m.emp_name "상사이름"
-from emp e join emp m on e.mgr_id = m.emp_id
+       m.emp_name "상사이름",
+       e.mgr_id
+from emp e join emp m on e.mgr_id = m.emp_id # 이건 e 테이블의 매니저 id로 m테이블의 이름을 매칭시켜서 매니저의 이름을 넣겠다는 것 
 ; -- where e.emp_id = 101; 
+#테스팅용# 
+select *
+from emp e join emp m on e.mgr_id = m.emp_id; # 이건 e 테이블의 매니저 id로 m테이블의 이름을 매칭시켜서 매니저의 이름을 넣겠다는 것 
+
+
 
 select * from emp where emp_id = 101;
 

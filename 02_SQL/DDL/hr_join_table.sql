@@ -1,5 +1,5 @@
 -- CREATE DATABASE hr_join;
--- USE  hr_join;
+USE  hr_join;
 
 -- set foreign_key_checks=0;
 

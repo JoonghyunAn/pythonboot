@@ -24,8 +24,7 @@
 ************************************************************************** */
 -- 직원_ID(emp.emp_id)가 120번인 직원과 같은 업무(emp.job_id)를 하는 직원의 id(emp_id),이름(emp.emp_name), 업무(emp.job_id), 급여(emp.salary) 조회
 # select job_id from emp where emp_id = 120; 
-select * from emp 
-where job_id = (select job_id from emp where emp_id = 120); #이건 두번해야될걸 한번에 
+select * from emp where job_id = (select job_id from emp where emp_id = 120); #이건 두번해야될걸 한번에 
 select 10;
 
 -- 직원_id(emp.emp_id)가 115번인 직원과 같은 업무(emp.job_id)를 하고 같은 부서(emp.dept_id)에 속한 직원들을 조회하시오.
@@ -214,20 +213,9 @@ where exists(select * from emp where dept_id = d.dept_id); # where에서 false �
 select * from dept d
 where not exists(select * from emp where dept_id = d.dept_id);
 
--- 주문을 한번도 하지 않은 고객 정보 조회
 
-select * 
-from customers
-	where not exists(select from orders where cust_id = );
+-- 주문을 한번도 하지 않은 고객 정보를 조회 
+-- 주문을 한 적이 있는 고객 정보를 조회 
+-- 한번도 팔린적이 없는 제품 조회 
+-- 팔린 적이 있는 제품 조회
 
--- select * from customers;
--- select * from orders;
-
--- products not sold so far 
-
-select * from products
-where not exists(select * from order_items where product_id = products.product_id);
-
--- products that were sold at least once 
-select * from products
-where exists(select * from order_items where product_id = products.product_id);
