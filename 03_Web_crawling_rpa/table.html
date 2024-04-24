@@ -1,0 +1,66 @@
+<!-- 
+    HTML에 표 만드는 태그 - table
+    table 자식 태그: 
+        - thead: header 행(컬럼명)들을 묶어준다.(옵션)
+        - tbody: 표 내용행들을 묶어준다.(옵션)
+        - tfoot: footer 행들(집계결과등)을 묶어준다. (옵션) ... 굳이 이렇게 안묶어도 된다. 의무는 아님
+        thead/tbody/tfoot/table 자식 
+            - tr: 한 행.. table row 한행을 구성하는 값들을 묶어준다. (한 행을 묶어줌)
+            tr 자식태그 
+                - td: 한행의 한 열의 값을 설정.  text를 넣는다. 
+                - th: td와 동일. text를 bold체에 center 정렬 (컬럼명)
+
+table > tbody > tr > td
+
+-->
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border ="1">
+        <thead> <!-- 컬럼명 헤더 -->
+            <tr>
+                <th>이름</th>
+                <td>주소</td>
+                <td>나이</td>
+            </tr>
+
+        </thead>
+        <tbody>
+            <tr>
+                <td>lee</td>
+                <td>Seoul</td>
+                <td>20</td>
+            </tr>
+            <tr>
+                <td>lee</td>
+                <td>Seoul</td>
+                <td>20</td>
+            </tr>
+            <tr>
+                <td>lee</td>
+                <td>Seoul</td>
+                <td>20</td>
+            </tr>
+
+        </tbody> <!--css,javascript에서 쉽게 지정하기 위해.. head body foot 나눠놓으면 좋음-->
+        <tfoot>
+            <tr>
+                <th>나이평균</th>
+                <td colspan="2">25</td> <!-- 자매품 row span 있음-->
+            </tr>
+
+        </tfoot>
+    </table>
+    
+</body>
+</html>
+
+

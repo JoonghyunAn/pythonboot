@@ -1,79 +1,81 @@
-<!-- HTML(5) 문서 선언 .. 주석입니다... -->
+<!--HTML(5) 문서 선언-->
 <!doctype html>
-<!-- root 태그: HTML -->
+<!-- ROOT 태그: HTML -->
 <html>
-    <!-- head: 문서의 정보들 -->
+    <!--head: 문서의 정보들-->
     <head>
-        <title> 우리동물원 sogae</title>
-        <meta charset = "UTF-8">
-        <style>  
+        <title>우리동물원 소개</title>
+        <meta charset="UTF-8">
+        <style>
             h1 {
-                background:black;
+                background:red;
                 color:white;
             }
-            div#animal1{  /*div 중 animal1인 엘레멘트*/
-                background:green; 
-                color:aquamarine
-
+            div#animal1 { /*div 중 id가 animal1인 elements*/
+                color: red
             }
-           div.animal_info{/*div 중 class = 'animal_info'인 elements*/
-            border:2px solid rgb(24, 150, 223);
-            width: 400px;
-            padding: 30px;
-            margin: 5px;
-
-           }
-           *.name{  /* '*'' 모든 태그들, class/id 연결해서 지정 시 생략가능 */
-            font-size:1.2em; /*em : 상대적 크기. 기본 size에 1.2배*/
-            font-weight: bold;
-           }
-           a:hover{
-            color:red;
-           }
-           a:nth-child(2n){/*a 중 2의 배수번째 자식 태그인 a elements*/
-                font size:1.5em;
-
-           }
+            div.animal_info {/*div 중 class='animal_info'인 elements*/
+                border: 2px solid rgb(51, 211, 213);
+                width: 400px;
+                padding: 30px; 
+                margin: 5px;
+            }
+            .name {  /* *: (태그이름) 모든 태그들 class/id 를 연결해서 지정시 생략가능. *.name, .name  */
+                font-size:1.2em; /*em: 상대적 크기. 기본 size에 1.2배*/
+                font-weight: bold;
+            }
+            a:hover {
+                color:red;
+            }
+            a:nth-child(2n) {/*2의 배수번째 자식 태그인 a elements*/
+                font-size:1.5em;
+            }
+            div > a:first-child {/*부모가 div인 a 중에 첫번째 자식 elements*/
+                font-weight:bolder;
+                color:rgb(241, 238, 54);
+            }
+            
         </style>
     </head>
-    <!--  body : 문서 내용 -->
+    <!--body: 문서 내용-->
     <body>
-        <h1>동물목록</h1>  <!-- h1 ~ h6 : 제목태그 -->
-        <!-- div: divide -->
-        <div id="animal1" class = "animal_info">
+        <h1>동물목록</h1><!--h1 ~ h6: 제목태그. -->
+        <!--div: divide-->
+        <div id="animal1" class="animal_info">
             <div class="name">사자</div>
             <div>3마리</div>
         </div>
-        <div class = "animal_info">
+        <div class="animal_info">
             <div class="name">호랑이</div>
             <div>10마리</div>
         </div>
-        <div class = "animal_info">
-           <div class="name">곰</div>
+        <div class="animal_info">
+            <div class="name">곰</div>
             <div>5마리</div>
         </div>
-        <div class = "animal_info">
-           <div class="name">낙타</div>
+        <div class="animal_info">
+            <div class="name">낙타</div>
             <div>6마리</div>
         </div>
-        <!-- alt + 멀티 셀렉트 가능  -->
-        우리 동물원에는 <span class="name">기린</span>도 30&nbsp;마리 있습니다.  
+        우리 동물원에는 <span class="name">기린</span>도 30&nbsp;마리 있습니다.
+
         <h1>다른 동물원 URL</h1>
-        <!-- ul(unordered list)/ol(ordered list) : 목록태그. li: item들 지정 ol: 순서 붙여줌..   -->
-        <!-- a: 링크, href 속성: 이동할 url을 지정 -->
+        <!--ul/ol: 목록태그. li: item들 지정.-->
+        <!--a: 링크, href 속성: 이동할 url을 지정.-->
         <ul>
-        <li><a href="https://grandpark.seoul.go.kr/main/ko.do">서울 대공원</a></li>
-        <li><a href="https://www.everland.com/web/everland/favorite/zootopia/index.html">에버랜드</a></li>
-        <li><a href=" https://www.coexaqua.com">코엑스아쿠아리움</a></li>
+            <li><a href="https://grandpark.seoul.go.kr/main/ko.do">서울 대공원</a></li>
+            <li><a href="https://www.everland.com/web/everland/favorite/zootopia/index.html">에버랜드</a></li>
+            <li><a href="https://www.coexaqua.com">코엑스아쿠아리움</a></li>
         </ul>
-        <a href="https://www.naver.com">네이버</a>
-        <a href="https://www.google.com">Google</a>
-        <a href="https://www.daum.net">다음</a>
-
+        <div>
+            <a href="http://www.naver.com">네이버</a>
+            <a href="http://www.naver.com">다음</a>
+            <a href="http://www.naver.com">구글</a>
+            <a href="http://www.naver.com">구글2</a>
+            <a href="http://www.naver.com">구글3</a>
+            <a>구글4</a>
+        </div>
         <br>
-        <img src="data:image/jpeg;base64,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"><!--  -->
-    <!-- image의 url을 src에 지정, width="500px" 이런 식으로 크기 조정 가능 --> 
-    <br>꼬부기는 없습니다.
-
-    </body> 
+        <img src="https://www.gereports.kr/wp-content/uploads/2022/02/hybrid_propulsion-820x398.jpg" width="500px"><!--image의 url을 src에 지정.-->
+    </body>
 </html>

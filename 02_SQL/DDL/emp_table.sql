@@ -1,19 +1,16 @@
 -- create database hr;
 use hr;
 
-select * 
-from emp;
-
 DROP TABLE IF EXISTS emp;
 CREATE TABLE emp(
-    emp_id 		INT PRIMARY KEY,
-    emp_name 	VARCHAR(20) NOT NULL, 
-    job 		VARCHAR(35) NOT NULL, -- 직원의 업무
-    mgr_id 		INT,  -- 상사의 직원 ID
-    hire_date 	DATE NOT NULL, -- 입사일
-    salary 		DECIMAL(7,2),  -- 급여  정수부 : 5 , 실수부 2 (7: 총 자리수)
-    comm_pct 	DECIMAL(2,2),  -- 커미션 (급여 대비) 비율 0 ~ 1( 총 자리 2, 실수부 2, 정수부 0) -> 0.xx 
-    dept_name 	VARCHAR(30)    -- 소속 부서의 이름
+    emp_id 		INT PRIMARY KEY,       -- 직원 ID
+    emp_name 	VARCHAR(20) NOT NULL,  -- 직원 이름
+    job 		VARCHAR(35) NOT NULL,  -- 담당 업무
+    mgr_id 		INT,                   -- 상사의 직원 ID
+    hire_date 	DATE NOT NULL,         -- 입사일
+    salary 		DECIMAL(7,2),          -- 급여(월급)   정수부: 5, 실수부: 2 (7: 총자리수)
+    comm_pct 	DECIMAL(2,2),          -- 커미션 (급여 대비) 비율. 0 ~ 1 (총자리: 2, 실수부: 2, 정수부: 0) -> 0.xx
+    dept_name 	VARCHAR(30)            -- 소속 부서 이름
 );
 
 
